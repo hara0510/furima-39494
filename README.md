@@ -50,7 +50,6 @@ has_many :orders
 | user          | references | null: false |
 
 ### Association
-belongs_to :user
 belongs_to :order
 
 
