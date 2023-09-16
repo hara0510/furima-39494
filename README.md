@@ -47,7 +47,7 @@ has_many :orders
 | address       | string     | null: false |
 | building      | string     |             |
 | tel           | string     | null: false |
-| user          | references | null: false |
+| order         | references | null: false |
 
 ### Association
 belongs_to :order
