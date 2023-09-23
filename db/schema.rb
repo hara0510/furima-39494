@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_16_073457) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_23_072335) do
   create_table "items", charset: "utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "item_name", null: false
+    t.text "description", null: false
+    t.integer "category_id", null: false
+    t.integer "condition_id", null: false
+    t.integer "shippingfee_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "deliveryday_id", null: false
+    t.integer "price", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "users", charset: "utf8", force: :cascade do |t|
@@ -28,10 +38,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_16_073457) do
     t.string "last_name"
     t.string "first_name"
     t.string "last_name_kana"
-    t.string "first_name_kana"
-    t.date "birthday"
+    t.string "first_name_kana", null: false
+    t.date "birthday", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "items", "users"
 end
