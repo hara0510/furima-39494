@@ -7,6 +7,6 @@ FactoryBot.define do
     shippingfee_id { Faker::Number.between(from: 1, to: 48) }
     prefecture_id  { Faker::Number.between(from: 1, to: 3) }
     deliveryday_id { Faker::Number.between(from: 1, to: 4) }
-    price          { Faker::Number.between(from: 300, to: 9999999) }
+    price          { Faker::Number.between(from: 300, to: 9_999_999) }
   end
 end
