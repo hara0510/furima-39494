@@ -31,7 +31,7 @@ RSpec.describe Item, type: :model do
       it 'item_nameが40文字より長いと登録できない' do
         @item.item_name = Faker::Lorem.characters(number: rand(41..42))
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item name is too long (maximum is 40 characters)")
+        expect(@item.errors.full_messages).to include('Item name is too long (maximum is 40 characters)')
       end
 
       it 'descriptionが空では登録できない' do
@@ -43,7 +43,7 @@ RSpec.describe Item, type: :model do
       it 'descriptionが1000文字より長いと登録できない' do
         @item.description = Faker::Lorem.characters(number: rand(1001..1002))
         @item.valid?
-        expect(@item.errors.full_messages).to include("Description is too long (maximum is 1000 characters)")
+        expect(@item.errors.full_messages).to include('Description is too long (maximum is 1000 characters)')
       end
 
       it 'category_idが空では登録できない' do
@@ -85,19 +85,19 @@ RSpec.describe Item, type: :model do
       it 'priceが300より小さいと登録できない' do
         @item.price = '100'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is out of setting range")
+        expect(@item.errors.full_messages).to include('Price is out of setting range')
       end
 
       it 'priceが9,999,999より大きいと登録できない' do
         @item.price = '10000000'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is out of setting range")
+        expect(@item.errors.full_messages).to include('Price is out of setting range')
       end
 
       it 'userが紐付いていなければ登録できない' do
         @item.user = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("User must exist")
+        expect(@item.errors.full_messages).to include('User must exist')
       end
     end
   end
