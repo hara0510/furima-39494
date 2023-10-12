@@ -13,4 +13,9 @@ class DonationAddress
     validates :tel, presence:true
     validates :order, presence:true
   end
+
+  def save
+    order = Order.create(user_id: user_id, item_id: item_id)
+    Address.create(postal_code: postal_code, prefecture_id: prefecture_id, city: city, address: address, building: building, order_id: order_id)
+  end
 end
