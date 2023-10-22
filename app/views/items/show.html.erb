@@ -21,7 +21,7 @@
         ¥ <%= @item.price %>
       </span>
       <span class="item-postage">
-        <%= Prefecture.find_by_id(@item.prefecture_id)&.name %>
+        <%= Shippingfee.find_by_id(@item.shippingfee_id)&.name %>
       </span>
     </div>
 
