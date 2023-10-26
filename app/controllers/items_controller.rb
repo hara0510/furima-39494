@@ -24,9 +24,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if @item.orders.any?
-      redirect_to items_path
-    end
+    return unless @item.orders.any?
+
+    redirect_to items_path
   end
 
   def update

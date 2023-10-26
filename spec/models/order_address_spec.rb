@@ -23,13 +23,14 @@ RSpec.describe OrderAddress, type: :model do
       it 'postal_codeが空では登録できない' do
         @order_address.postal_code = ''
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Postal code can't be blank", "Postal code is invalid. Enter it as follows (e.g. 123-4567)")
+        expect(@order_address.errors.full_messages).to include("Postal code can't be blank",
+                                                               'Postal code is invalid. Enter it as follows (e.g. 123-4567)')
       end
 
       it 'postal_codeが半角数字3文字、半角ハイフン、半角数字4文字の型でないと登録できない' do
         @order_address.postal_code = '1111111'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Postal code is invalid. Enter it as follows (e.g. 123-4567)")
+        expect(@order_address.errors.full_messages).to include('Postal code is invalid. Enter it as follows (e.g. 123-4567)')
       end
 
       it 'prefecture_idが空では登録できない' do
@@ -59,19 +60,19 @@ RSpec.describe OrderAddress, type: :model do
       it 'telが10文字未満では登録できない' do
         @order_address.tel = '123456789'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Tel is too short")
+        expect(@order_address.errors.full_messages).to include('Tel is too short')
       end
 
       it 'telが11文字以上では登録できない' do
         @order_address.tel = '123456789012'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Tel is too long")
+        expect(@order_address.errors.full_messages).to include('Tel is too long')
       end
 
       it 'telが半角数字でないと登録できない' do
         @order_address.tel = 'a'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Tel is invalid. Input only number")
+        expect(@order_address.errors.full_messages).to include('Tel is invalid. Input only number')
       end
 
       it 'userが紐づいていないと登録できない' do
