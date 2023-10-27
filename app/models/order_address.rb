@@ -16,9 +16,9 @@ class OrderAddress
                 minimum: 10, too_short: 'is too short',
                 maximum: 11, too_long: 'is too long'
               }
-    validates :user_id, presence: true
-    validates :item_id, presence: true
-    validates :token, presence: true
+    validates :user_id
+    validates :item_id
+    validates :token
   end
 
   def save
