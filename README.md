@@ -33,7 +33,7 @@ has_many :orders
 
 ### Association
 belongs_to :user
-has_many :orders
+has_one :orders
 
 
 

@@ -8,7 +8,7 @@ class Item < ApplicationRecord
   belongs_to :shippingfee
   belongs_to :prefecture
   belongs_to :deliveryday
-  has_many :orders
+  has_one :orders
 
   validates :image, presence: true
   validates :item_name, presence: true, length: { maximum: 40 }
