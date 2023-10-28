@@ -135,11 +135,11 @@
           <div class='item-img-content'>
             <%= image_tag item.image, class: "item-img" %>
 
-            <%# <% if item.orders.any? %>
-             <%# <div class='sold-out'> %>
-              <%# <span>Sold Out!!</span> %>
-             <%# </div> %>
-            <%# <% end %>
+            <% if item.order.present? %>
+             <div class='sold-out'>
+              <span>Sold Out!!</span>
+             </div>
+            <% end %>
 
           </div>
           <div class='item-info'>
@@ -147,7 +147,7 @@
               <%= item.item_name %>
             </h3>
             <div class='item-price'>
-              <span><%= item.price %>円<br><%= Prefecture.find_by_id(item.prefecture_id)&.name %></span>
+              <span><%= item.price %>円<br><%= Shippingfee.find_by_id(item.shippingfee_id)&.name %></span>
               <div class='star-btn'>
                 <%= image_tag "star.png", class:"star-icon" %>
                 <span class='star-count'>0</span>

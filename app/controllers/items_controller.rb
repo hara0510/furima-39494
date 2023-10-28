@@ -24,6 +24,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    return unless @item.order.present?
+
+    redirect_to items_path
   end
 
   def update
