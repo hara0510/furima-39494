@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
     if user_signed_in?
       if current_user.id == @item.user_id
         redirect_to root_path
-      elsif @item.orders.any?
+      elsif @item.order.present?
         redirect_to root_path
       end
     else
